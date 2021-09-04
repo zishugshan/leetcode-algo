@@ -1,4 +1,4 @@
-day1 : 1>> https://leetcode.com/problems/binary-search/
+// day1 : 1>> https://leetcode.com/problems/binary-search/
 
     int search(vector<int>& nums, int target) {
         int n = nums.size();
@@ -16,4 +16,5 @@ day1 : 1>> https://leetcode.com/problems/binary-search/
                 h = mid-1;
             }
         }
+    }
    
