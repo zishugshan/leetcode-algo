@@ -153,6 +153,87 @@
 
 // day4 : 2>> https://leetcode.com/problems/reverse-words-in-a-string-iii/
 
+    string reverseOne(string &s,int i,int j){
+        while(i<j){
+            swap(s[i++],s[j--]);
+        }
+        return s;
+    }
+    string reverseWords(string s) {
+        int l=0;
+        int r=1;
+        while(l<r){
+            if(r>s.size()-1){
+                int start = l;
+                reverseOne(s,start,s.size()-1);
+                break;
+            }
+            if(s[r]==' '){
+                int start = l;
+                int end = r-1;
+                reverseOne(s,start,end);
+                l=r+1;
+                r=r+2;
+            }
+            else{
+                r++;
+            }
+        }
+        return s; 
+    }
+
+
+
+// day5 : 1>> https://leetcode.com/problems/middle-of-the-linked-list/
+
+    ListNode* middleNode(ListNode* head) {
+        ListNode * temp = head;
+        int count =0;
+        while(temp!=NULL){
+            temp = temp->next;
+            count++;
+        }
+        int newH = count/2;
+        temp = head;
+        while(newH--){
+            temp = temp->next;
+        }
+        head = temp;
+        return head;
+    }
+
+
+// day5 : 2>> https://leetcode.com/problems/remove-nth-node-from-end-of-list/submissions/
+
+    ListNode* removeNthFromEnd(ListNode* head, int n) {
+        ListNode *temp = head;
+        int count =0;
+        while(temp){
+            temp=temp->next;
+            count++;
+        }
+        temp=head;
+        int fromStart = count - n -1;
+        if(count==n) {
+            head=temp->next;
+            return head;
+        }
+        temp = head;
+        while(fromStart--){
+            temp = temp->next;
+        }
+        if(n==1){
+            temp->next = NULL;
+            return head;
+        }
+        ListNode * delt = temp->next;
+        temp->next = delt->next;
+        return head;
+    }
+
+
+//day6 : 1>> 
+
 
         
         
